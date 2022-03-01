@@ -1,0 +1,18 @@
+@EndUserText.label : 'Sales Header Table'
+@AbapCatalog.enhancementCategory : #EXTENSIBLE_ANY
+@AbapCatalog.tableCategory : #TRANSPARENT
+@AbapCatalog.deliveryClass : #A
+@AbapCatalog.dataMaintenance : #RESTRICTED
+define table zsales_header {
+  key client        : abap.clnt not null;
+  key sd_uuid       : /bobf/conf_key not null;
+  sales_documentid  : vbeln_vl;
+  document_date     : audat;
+  document_category : vbtypl;
+  order_type        : auart;
+  order_reason      : augru;
+  @Semantics.amount.currencyCode : 'zsales_header.currency'
+  net_value         : netwr_ak;
+  currency          : waerk;
+
+}

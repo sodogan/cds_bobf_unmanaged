@@ -1,0 +1,18 @@
+@EndUserText.label : 'Sales item data'
+@AbapCatalog.enhancementCategory : #NOT_EXTENSIBLE
+@AbapCatalog.tableCategory : #TRANSPARENT
+@AbapCatalog.deliveryClass : #A
+@AbapCatalog.dataMaintenance : #RESTRICTED
+define table zsales_item {
+  key mandt        : mandt not null;
+  key item_uuid    : /bopf/conf_key not null;
+  parentkey        : /bopf/conf_key;
+  sales_documentid : vbeln_vl;
+  sales_itemid     : posnr;
+  mat_num          : matnr;
+  mat_grp          : matkl;
+  @Semantics.amount.currencyCode : 'zsales_item.currency'
+  net_amount       : netwr_ap;
+  currency         : waerk;
+
+}
